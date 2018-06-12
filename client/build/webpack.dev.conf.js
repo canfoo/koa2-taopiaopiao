@@ -42,7 +42,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     setup() {
       childProcess.spawn(
         'npm',
-        ['run', 'start-server'],
+        ['run', 'dev-server'],
         { shell: true, env: process.env, stdio: 'inherit' }
       )
         .on('close', code => process.exit(code))
@@ -51,7 +51,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': require('../config/dev.env')
+      'process.env': require('../../config/dev.env')
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.

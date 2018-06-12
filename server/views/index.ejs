@@ -5,9 +5,8 @@
 </head>
 <body>
     <div id="app"></div>
-    <%for(var i=0;i<Arr.length;i++){%>
-        <li><%=Arr[i].name%></li>
+    <%for(var i=0;i<scriptList.length;i++){%>
+        <script src="<%=scriptList[i]%>"></script>
     <%}%>
-    <script src="http://localhost:8080/index.js"></script>
 </body>
 </html>

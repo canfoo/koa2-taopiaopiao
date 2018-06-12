@@ -1,11 +1,11 @@
 
 const config = require('../../config')
 
+const isOnline = process.env.ONLINE
+console.log('isOnline', isOnline)
+
 module.exports = {
-  scriptCreator(pageName) {
-    return [
-      // <script key='vendor' src={`/${matchVendorFile()}`} />,
-      <script key={pageName} src={`http://localhost:${config.dev.port}/dist/index.js`} />
-    ]
+  scriptCreator() {
+    return [`http://localhost:${config.dev.port}/index.js`]
   }
 }

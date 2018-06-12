@@ -6,9 +6,10 @@
   "private": true,
   "scripts": {
     "dev": "cross-env SERVER_PORT=3031 webpack-dev-server --inline --progress --config client/build/webpack.dev.conf.js",
-    "start": "npm run hot-dev",
-    "start-server": "cross-env SERVER_PORT=3031 node index.js",
-    "build": "node client/build/build.js"
+    "dev-server": "cross-env SERVER_PORT=3031 node index.js",
+    "server": "cross-env SERVER_PORT=3031 ONLINE=1 node index.js",
+    "build": "node client/build/build.js",
+    "deploy": "cross-env SERVER_PORT=3031 ONLINE=1 npm run build && npm run server"
   },
   "dependencies": {
     "babel-register": "^6.26.0",
