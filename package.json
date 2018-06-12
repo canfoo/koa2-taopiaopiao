@@ -7,7 +7,6 @@
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config client/build/webpack.dev.conf.js",
     "start": "npm run hot-dev",
-    "hot-dev": "cross-env NODE_ENV=local node --trace-warnings -r babel-register ./node_modules/webpack-dev-server/bin/webpack-dev-server --config client/build/webpack.dev.conf.js  --progress --profile --colors",
     "start-server": "cross-env NODE_ENV=local node index.js",
     "build": "node build/build.js"
   },
@@ -16,6 +15,7 @@
     "koa": "^2.5.1",
     "koa-router": "^7.4.0",
     "koa-static": "^4.0.3",
+    "koa-views": "^6.1.4",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
