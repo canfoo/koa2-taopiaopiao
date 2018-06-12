@@ -1,8 +1,9 @@
 'use strict'
+const fs = require('fs')
 const path = require('path')
 const utils = require('./utils')
 const webpack = require('webpack')
-const config = require('../config')
+const config = require('../../config')
 const merge = require('webpack-merge')
 const baseWebpackConfig = require('./webpack.base.conf')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
@@ -97,7 +98,13 @@ const webpackConfig = merge(baseWebpackConfig, {
         to: config.build.assetsSubDirectory,
         ignore: ['.*']
       }
-    ])
+    ]),
+
+    function custom() {
+      this.plugin('done', (stats) => {
+        fs.writeFileSync(path.join(__dirname, '../../dist/assets.json'), JSON.stringify(stats.toJson().assets))
+      })
+    }
   ]
 })
 

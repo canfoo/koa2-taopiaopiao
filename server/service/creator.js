@@ -1,13 +1,11 @@
 
-
-const host = 'localhost'
-const port = 8080
+const config = require('../../config')
 
 module.exports = {
   scriptCreator(pageName) {
     return [
       // <script key='vendor' src={`/${matchVendorFile()}`} />,
-      <script key={pageName} src={`http://${host}:${port}/dist/${pageName}.bundle.js`} />
+      <script key={pageName} src={`http://localhost:${config.dev.port}/dist/index.js`} />
     ]
   }
 }

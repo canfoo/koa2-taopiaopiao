@@ -5,10 +5,10 @@
   "author": "chensenwei <chensenwei@meituan.com>",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config client/build/webpack.dev.conf.js",
+    "dev": "cross-env SERVER_PORT=3031 webpack-dev-server --inline --progress --config client/build/webpack.dev.conf.js",
     "start": "npm run hot-dev",
-    "start-server": "cross-env NODE_ENV=local node index.js",
-    "build": "node build/build.js"
+    "start-server": "cross-env SERVER_PORT=3031 node index.js",
+    "build": "node client/build/build.js"
   },
   "dependencies": {
     "babel-register": "^6.26.0",
